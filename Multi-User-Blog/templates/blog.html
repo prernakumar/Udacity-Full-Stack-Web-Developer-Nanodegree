@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+  {% for post in posts %}
+    <h2>{{ post.subject }} by {{ post.author.username }}</h2>
+    <h3>Posted on: {{ post.created.strftime("%b %d, %Y") }}</h3>
+    <article>{{ post.content | safe}}</article>
+    <br>
+    <a href="/blog/{{ post.key.id() }}">Comment</a>
+    {% if post.author.username == user.username %}
+        |
+        <a href="/blog/edit?post={{ post.key.id() }}">Edit</a>
+        |
+        <a href="/blog/delete?post={{ post.key.id() }}">Delete</a>
+    {% endif %}
+  {% endfor %}
+{% endblock %}
