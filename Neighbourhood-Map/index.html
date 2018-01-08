@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta charset="utf-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+
+  <div> <input class="search-box" placeholder="Search"  data-bind="textInput: searchTerm, valueUpdate: 'afterkeydown'"></div>
+
+  <div>
+    <div class="listOfPlaces">
+      <ul  class="responses" data-bind="foreach:placesList ">
+        <li  class="place" data-bind="text:title, click:displayLocation"></li>
+      </ul>
+    </div>
+    <div class="map" id="map"></div>
+</div>
+
+
+
+    <script src='js/knockout.js'></script>
+    <script src='js/jquery.js'></script>
+    <script src='js/app.js'></script>
+    <script src='js/locationsData.js'></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH5pVDfTJdpaLu3cPFsADpzvxYtWJsnn0&v=3&callback=main">
+    </script>
+
+  </body>
+</html>
